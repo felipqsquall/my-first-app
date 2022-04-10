@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import GrayImg from "../shared/gray_img";
 import DescriptionWithLink from "../shared/description_with_link";
 import Form from "./form"
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 
 
 async function getPlanet(id) {
@@ -14,6 +14,7 @@ async function getPlanet(id) {
 const Planet = () => {
   const [satellites, setSatellites] = useState([]);
   const [planet, setPlanet] = useState({});
+  const [redirect, setRedirect] = useState(false);
   let { id } = useParams();
   let history = useNavigate();
 
@@ -25,6 +26,8 @@ const Planet = () => {
     getPlanet(id).then((data) => {
       setSatellites(data['satellites']);
       setPlanet(data['data']);
+    }, error => {
+      setRedirect(true);
     })
   }, []);
 
@@ -36,6 +39,10 @@ const Planet = () => {
   if (planet.title_with_underline)
     title = (<h4><u>{planet.name}</u></h4>);
   else title = <h4>{planet.name}</h4>;
+
+  if(redirect){
+    history('/');
+  }
 
   return (
     <div>
