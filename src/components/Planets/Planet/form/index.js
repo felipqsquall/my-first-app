@@ -7,14 +7,8 @@ const Form = (props) => {
 
     const [fields, setFields] = useState(initialState);
 
-<<<<<<< HEAD
     const handleFieldsChange = (e) => setFields({...fields,[e.currentTarget.name]: e.currentTarget.value});
-=======
-    const handleFieldsChange = (e) => setFields({
-        ...fields,
-        [e.currentTarget.name]: e.currentTarget.value
-    });
->>>>>>> ad577a5550bf3ce249ca411d40bb8bbb2519552e
+
     
     const handleSubmit = event => {
         props.addSatellites(fields);
