@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import PlanetScreen from "./screens/planets";
+import PlanetsScreen from "./screens/planets";
+import PlanetScreen from "./screens/planet"
 
 const ScreenRoutes = () => (
     <BrowserRouter>
         <Routes>
-            <Route exact path='/' element={<PlanetScreen />}/>
+            <Route exact path='/' element={<PlanetsScreen />}/>
+            <Route exact path='/planet/:id' element={<PlanetScreen/>}/>
         </Routes>
     </BrowserRouter>
     )
