@@ -19,7 +19,7 @@ const initialState = {
 
 
 const Planet = (props) => {
-  const [satellites, setSatellites] = useState([]);
+  const [satellites, setSatellites] = useState([initialState]);
 
   useEffect(() => {
     getSatellites(props.id).then((data) => {

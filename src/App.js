@@ -1,10 +1,10 @@
 import './App.css';
-import Planets from './components/Planets'
+import ScreenRoutes from './routes'
 
 function App() {
   return (
     <div>
-      <Planets></Planets>
+      <ScreenRoutes/>
     </div>
   );
 }
